@@ -15,4 +15,4 @@ else:
         print(f"Last digit of {number} is {ld} and is 0")
     else:
         print(f"Last digit of {number} is {-1 * ld}\
-and is less than 6 and not 0")
+ and is less than 6 and not 0")

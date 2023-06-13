@@ -20,17 +20,17 @@ int is_palindrome(listint_t **head)
 	while (curr->next)
 		curr = curr->next;
 	p2 = curr;
-	while (p1 != p2)
+	while (p1 != p2 && p1->next != p2)
 	{
-		curr = p1;
 		if (p1->n != p2->n)
 			return (0);
+		p1 = p1->next;
+		curr = p1;
 		while (curr->next != p2)
 			curr = curr->next;
-		if (p1->next == p2)
-			break;
 		p2 = curr;
-		p1 = p1->next;
 	}
+	if (p1->n != p2->n)
+		return (0);
 	return (1);
 }

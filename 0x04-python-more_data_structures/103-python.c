@@ -1,4 +1,6 @@
 #include <Python.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * print_python_bytes - prints python bytes
@@ -20,7 +22,8 @@ void print_python_bytes(PyObject *p)
 	PyBytes_AsStringAndSize(p, &str, &size);
 	printf("  size: %li\n", size);
 	printf("  trying string: %s\n", str);
-	printf(size >= 10 ? "  first 10 bytes:": "  first %ld bytes:", ++size);
+	size >= 10 ? printf("  first 10 bytes:") :
+		printf("  first %ld bytes:", ++size);
 	for (i = 0; i < size && i < 10; i++)
 		printf(" %02hhx", str[i]);
 	printf("\n");

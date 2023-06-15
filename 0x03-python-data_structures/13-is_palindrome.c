@@ -12,25 +12,25 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *temp = *head;
-	int len = 0, i = 0;
-	int arr[4096];
+	listint_t *slow = *head, *fast = *head;
+	int stack[2048];
+	int top = 0;
 
-	if (*head == NULL)
-		return (1);
-
-	while (temp != NULL)
+	while (fast && fast->next)
 	{
-		arr[len] = temp->n;
-		len++;
-		temp = temp->next;
+		stack[top++] = slow->n;
+		slow = slow->next;
+		fast = fast->next->next;
 	}
 
-	while (i < len / 2)
+	if (fast)
+		slow = slow->next;
+
+	while (slow)
 	{
-		if (arr[i] != arr[len - i - 1])
-			return (0);
-		i++;
+		if (stack[--top] != slow->n)
+			return 0;
+		slow = slow->next;
 	}
-	return (1);
+	return 1;
 }

@@ -20,7 +20,10 @@ int is_palindrome(listint_t **head)
 		return (1);
 	for (tmp = *head; tmp; tmp = tmp->next, len++);
 	arr = malloc(sizeof(int) *len);
-	for (i = 0; i < len; i++)
+	if (arr == NULL)
+		return (98);
+	tmp = *head;
+	for (i = 0; i < len; i++, tmp = tmp->next)
 		arr[i] = tmp->n;
 	for (i = 0; i < len / 2; i++)
 	{

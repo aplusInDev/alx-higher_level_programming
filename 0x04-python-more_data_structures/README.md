@@ -1,4 +1,2 @@
-### created by:
-##	 aplus
-### project:
-\t \#\#  0x04-python-more_data_structures
+### created by: **aplus**
+### project:  **0x04-python-more_data_structures**

@@ -1,20 +1,29 @@
 #!/usr/bin/python3
+""" this module create Square class """
+
+
 class Square:
+    """ Square class """
+
     def __init__(self, size=0):
+        """ initialize Square class """
         self.__size = size
 
     @property
     def size(self):
-        return self._Square__size
+        """ getter for Square class """
+        return self.__size
 
     @size.setter
     def size(self, value):
+        """ setter for Square class """
         if type(value) is not int:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
         else:
-            self._Square__size = value
+            self.__size = value
 
     def area(self):
-        return self._Square__size ** 2
+        """ calculate Square class area """
+        return self.__size ** 2

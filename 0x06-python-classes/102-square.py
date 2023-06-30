@@ -6,10 +6,8 @@ class Square:
     """ An empty class named Square """
 
     def __init__(self, size=0):
-        """ 
-        Initializes a new private instance of the Square class.
-        And raises TypeError and ValueError
-        """
+        """ Initializes a new private instance of the Square class.
+            And raises TypeError and ValueError """
         self.size = size
 
     @property

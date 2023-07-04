@@ -1,0 +1,31 @@
+# doctest_in_0-add_integer.txt
+
+This file tests ``add_integer()`` function if it works good
+Usage:
+======
+``add_integer()`` sums two giving integer and retuns it sum
+-----------------------------------------------------------
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 0)
+1
+>>> add_integer(0, -2)
+-2
+>>> add_integer(0)
+98
+>>> add_integer(11.11, -2)
+9
+>>> add_integer(-2, 11.11)
+9
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> add_integer("Best", "School")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer

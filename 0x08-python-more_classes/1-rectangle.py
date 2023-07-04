@@ -6,7 +6,7 @@ class Rectangle:
     """ Class named Rectangle """
 
     def __init__(self, width=0, height=0):
-        """ 
+        """
         Class initializer
         Args:
             self : instance

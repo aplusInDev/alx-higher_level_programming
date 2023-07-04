@@ -4,7 +4,7 @@
 
 class Rectangle:
     """
-    Class named Rectangle 
+    Class named Rectangle
     Sets number of instances to 0
     """
 

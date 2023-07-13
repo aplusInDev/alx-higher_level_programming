@@ -1,30 +1,26 @@
 #include "lists.h"
 
-int check_loop(int idx, listint_t *curr, listint_t *arr[])
-{
-	int i = 0;
-
-	while (i < idx)
-	{
-		if (arr[i] == curr)
-			return (-1);
-		i++;
-	}
-	return (1);
-}
+/**
+ * check_cycle - check if loop found in giving list
+ * @list: giving list root
+ *
+ * Return: 0 if there is no cycle, 1 if there is a cycle
+ */
 int check_cycle(listint_t *list)
 {
-	listint_t *arr[1024], *curr;
-	int index = 0;
+	listint_t *tmp, *curr;
 
-	curr = list->next;
-	arr[index++] = list;
-	while (curr)
+	tmp = list;
+	while (tmp->next)
 	{
-		if (check_loop(index, curr, arr) == -1)
-			return (1);
-		arr[index++] = curr;
-		curr = curr->next;
+		curr = tmp->next;
+		while (curr)
+		{
+			if (tmp == curr)
+				return (1);
+			curr = curr->next;
+		}
+		tmp = curr->next;
 	}
 	return (0);
 }

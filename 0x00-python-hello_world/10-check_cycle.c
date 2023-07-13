@@ -1,22 +1,30 @@
-#include <stdio.h>
 #include "lists.h"
 
-/**
- * check_cycle - checks cycle
- * @list: giving list
- *
- * Return: 0 (success)
- */
+int check_loop(int idx, listint_t *curr, listint_t *arr[])
+{
+	int i = 0;
+
+	while (i < idx)
+	{
+		if (arr[i] == curr)
+			return (-1);
+		i++;
+	}
+	return (1);
+}
 int check_cycle(listint_t *list)
 {
-	listint_t *slow = list, *fast = list;
+	listint_t *arr[1024], *curr;
+	int index = 0;
 
-	while (slow && fast && fast->next)
+	curr = list->next;
+	arr[index++] = list;
+	while (curr)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-		if (slow == fast)
+		if (check_loop(index, curr, arr) == -1)
 			return (1);
+		arr[index++] = curr;
+		curr = curr->next;
 	}
 	return (0);
 }

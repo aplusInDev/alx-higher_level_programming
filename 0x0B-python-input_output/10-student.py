@@ -30,7 +30,7 @@ class Student:
         if type(attrs) is list:
             for element in attrs:
                 if type(element) is not str:
-                    break
+                    continue
                 if hasattr(self, element):
                     dic[element] = getattr(self, element)
             return dic

@@ -8,6 +8,6 @@ from sys import argv
 load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
 exist = []
-exist.append(load_from_json_file("add_item.json"))
+exist.extend(load_from_json_file("add_item.json"))
 exist.extend(argv[1:])
 save_to_json_file(exist, "add_item.json")

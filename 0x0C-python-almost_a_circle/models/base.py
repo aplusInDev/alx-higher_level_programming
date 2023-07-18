@@ -3,7 +3,7 @@
 """
 import json
 import csv
-import turtle
+from turtle import *
 
 """
 import turtle
@@ -144,32 +144,41 @@ class Base:
             list_rectangles (list): List of Rectangle objects.
             list_squares (list): List of Square objects.
         """
-        t = turtle.Turtle()
-        screen = turtle.Screen()
-        colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+        d = Turtle()
+        color_list = ["red", "orange", "yellow", "green", "blue", "balck"]
         i = 0
         for obj in list_rectangles:
-            color_index = i % len(colors)
-            t.color(colors[color_index])
-            t.penup()
-            t.goto(obj.x, obj.y)
-            t.pendown()
-            for _ in range(2):
-                t.forward(obj.width)
-                t.right(90)
-                t.forward(obj.height)
-                t.right(90)
-            screen.clear()
+            if i >= len(color_list) - 1:
+                i = 0
+            draw_2(d, color_list[i], obj.x, obj.y, obj.width, obj.height)
             i += 1
         for obj in list_squares:
-            color_index = i % len(colors)
-            t.color(colors[color_index])
-            t.penup()
-            t.goto(obj.x, obj.y)
-            t.pendown()
-            for _ in range(4):
-                t.forward(obj.size)
-                t.right(90)
-            screen.clear()
+            if i >= len(color_list) - 1:
+                i = 0
+            draw_2(d, color_list[i], obj.x, obj.y, obj.size, obj.size)
             i += 1
-        turtle.done()
+        done()
+
+
+def draw_2(d, color, x, y, width, height):
+    """opens a window and draws all the Rectangles and Squares
+
+        Args:
+            d: first parameter
+            color: rectangle color
+            x: rectangle x-position
+            y: rectangle y-position
+            width: rectangle width
+            height: rectangle height
+        """
+    d.color(color)
+    # d.begin_fill()
+    d.penup()
+    d.goto(x, y)
+    d.pendown()
+    for _ in range(2):
+        d.forward(width)
+        d.right(90)
+        d.forward(height)
+        d.right(90)
+    # d.end_fill()

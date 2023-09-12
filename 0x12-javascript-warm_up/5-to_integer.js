@@ -1,3 +1,3 @@
 #!/usr/bin/node
 const { argv } = require('process');
-console.log(isNaN(argv[2]) ? 'Not a number' : `My number: ${argv[2]}`);
+if (!isNaN(argv[2])) { console.log(`My number: ${parseInt(argv[2])}`); } else { console.log('Not a number'); }
